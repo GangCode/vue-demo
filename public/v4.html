@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>绑定样式</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .noamal{color: green;}
+            .border{border:solid 1px red;}
+            .active{color:red;font-style: italic;}
+        </style>
+    </head>
+    <body>
+        <div class="noamal" v-bind:class="{'active':isActiveA,'border':aLive}">测试样式【对象形式】</div>
+
+        <div id="noamal" v-bind:class="[ isActiveA,aLive]">测试样式【数组形式】</div>
+        <script src="js/libs/vue.js"></script>
+
+        <script type="text/javascript">
+            var v = new Vue({
+                el: ".noamal",
+                data: {
+                    isActiveA: true,
+                    aLive: true
+                }
+            });
+
+            var vm = new Vue({
+                el: "#noamal",
+                data: {
+                    isActiveA: 1 === 0 ? "active" : "",
+                    aLive: 1 === 0 ? "border" : ""
+                }
+            });
+        </script>
+    </body>
+</html>

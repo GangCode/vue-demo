@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>表单绑定</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!--text-->
+        <input type="text" v-model="content" placeholder="show something"/>
+        <span>text:{{content}}</span>
+
+        <!--radio-->
+        <br>
+        <input type="radio" value="男" v-model="sex"/>
+        <label>男</label>
+        <input type="radio" value="女" v-model="sex"/>
+        <label>女</label>
+        <span>性别:{{sex}}</span>
+
+        <!--checkbox-->
+        <br>
+        <input type="checkbox" value="10" v-model="ages"/>
+        <label>10岁</label>
+        <input type="checkbox" value="20" v-model="ages"/>
+        <label>20岁</label>
+        <span>年龄：{{ages | orderBy -1}}</span>
+
+        <!--select-->
+        <br>
+        <select v-model="city">
+            <option selected>上海</option>
+            <option>杭州</option>
+            <option>苏州</option>
+        </select>
+        <span>城市:{{city}}</span>
+
+        <br>
+        <select v-model="selected" multiple>
+            <option v-for="todo in todos" v-bind:value="todo">
+                {{todo}}
+            </option>
+
+        </select>
+        <span>每日事项:{{selected}}</span>
+
+        <script src="js/libs/vue.js"></script>
+
+        <script type="text/javascript">
+new Vue({
+    el: 'body',
+    data: {
+        ages: [],
+        city: "",
+        todos: ["工作", "购物", "健身", "看电影"]
+    }
+});
+        </script>
+    </body>
+</html>

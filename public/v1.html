@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>属性</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="js/libs/vue.js"></script>
+
+        <script>
+            var proxData = {
+                name: "tester"
+            };
+
+            var v = new Vue({data: proxData});
+
+            console.log("#######代理属性是响应式的###########")
+            console.log("proxData:name=" + proxData.name);
+            console.log("代理属性:name=" + v.name);
+
+            proxData.name = "changer";
+            console.log("修改数据proxData.name后...");
+            console.log("proxData:name=" + proxData.name);
+            console.log("代理属性:name=" + v.name);
+
+            v.name = "v-tester";
+            console.log("修改代理属性后...");
+            console.log("proxData:name=" + proxData.name);
+            console.log("代理属性:name=" + v.name);
+
+        </script>
+    </body>
+</html>

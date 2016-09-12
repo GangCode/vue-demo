@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>简单组件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="list">
+            <!--自定义组件使用-->
+            <c-ul v-bind:nums="datanums"></c-ul>
+        </div>
+
+        <!--自定义组件模板-->
+        <template id="c-ul">
+            <ul>
+                <li v-for="n in nums">
+                    {{n.num}}
+                </li>
+            </ul>
+        </template>
+
+        <script src="js/libs/vue.js"></script>
+        <script src="js/apps/componet.js"></script>
+    </body>
+</html>

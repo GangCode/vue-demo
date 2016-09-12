@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+
+            #circle_item{position: absolute;left: 50px;top:50px;}
+            #circle_border{position: absolute;left: 50px;top:50px;width: 70px;height: 70px;background-image: url(circle-border.png);background-repeat: no-repeat;background-size:contain;}
+            #circle{position: absolute;left: 50px;top:50px;width: 60px;height: 60px;margin-left: 5px;margin-top:5px;background-image: url(circle.png);background-repeat: no-repeat;background-size:contain;}
+            #circle_light{position: absolute;left: 50px;top: 50px;width:50px;height: 50px;margin-left: 10.5px;margin-top:10.5px;background-image: url(circle-light.png);background-repeat: no-repeat;background-size:contain;z-index: 3;}
+
+
+            #circle_border{animation:img-rotate 3s linear infinite;-webkit-animation:img-rotate 3s linear infinite;-moz-animation:img-rotate 3s linear infinite;}
+            #circle{animation:img-rotate-reverse 4s linear infinite;-webkit-animation:img-rotate-reverse 4s linear infinite;-moz-animation:img-rotate-reverse 4s linear infinite;}
+            #circle_light{animation:img-scale 2s linear infinite;-webkit-animation:img-scale 2s linear infinite;-moz-animation:img-scale 2s linear infinite;}
+            @-webkit-keyframes img-rotate{
+                0%{-webkit-transform:rotate(0deg);}
+                50%{-webkit-transform:rotate(180deg);}
+                100%{-webkit-transform:rotate(360deg);}
+            }
+            @-moz-keyframes img-rotate{
+                0%{-moz-transform:rotate(0deg);}
+                50%{-moz-transform:rotate(180deg);}
+                100%{-moz-transform:rotate(360deg);}
+            }
+            @keyframes img-rotate{
+                0%{transform:rotate(0deg);}
+                50%{transform:rotate(180deg);}
+                100%{transform:rotate(360deg);}
+            }
+            @-webkit-keyframes img-rotate-reverse{
+                0%{-webkit-transform:rotate(0deg);}
+                50%{-webkit-transform:rotate(-180deg);}
+                100%{-webkit-transform:rotate(360deg);}
+            }
+            @-moz-keyframes img-rotate-reverse{
+                0%{-moz-transform:rotate(0deg);}
+                50%{-moz-transform:rotate(-180deg);}
+                100%{-moz-transform:rotate(-360deg);}
+            }
+            @keyframes img-rotate-reverse{
+                0%{transform:rotate(0deg);}
+                50%{transform:rotate(-180deg);}
+                100%{transform:rotate(-360deg);}
+            }
+            @-webkit-keyframes img-scale{
+                0%{-webkit-transform:scale(1);}
+                50%{-webkit-transform:scale(1.2);}
+                100%{-webkit-transform:scale(1);}
+            }
+            @-moz-keyframes img-scale{
+                0%{-moz-transform:scale(1);}
+                50%{-moz-transform:scale(1.2);}
+                100%{-moz-transform:scale(1);}
+            }
+            @keyframes img-scale{
+                0%{transform:scale(1);}
+                50%{transform:scale(1.2);}
+                100%{transform:scale(1);}
+            }
+        </style>
+    </head>
+    <body>
+        <div id="circle_item">
+            <div id="circle_border"></div>
+            <div id="circle"></div>
+            <div id="circle_light"></div>
+        </div>
+    </body>
+</html>

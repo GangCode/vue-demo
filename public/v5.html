@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-for应用</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <ul>
+            <li v-for="n in 5">{{n}}</li>
+        </ul>
+
+        <div v-for="val in person">{{$key}}:{{val}}</div>
+        <div v-for="(key,val) in address">{{key}}:{{val}}</div>
+
+        <script src="js/libs/vue.js"></script>
+
+        <script type="text/javascript">
+var v = new Vue({
+    el: "body",
+    data: {
+        person: {
+            name: "yinzg",
+            age: 30
+        },
+        address: {
+            home: "marks",
+            languge: "chinise"
+        }
+    }
+});
+        </script>
+    </body>
+</html>
