@@ -1,35 +1,37 @@
-var Child = Vue.extend({
-    template: '#child_temp',
-    props: ['proEdit', 'proDelete'],//1.在子组件中定义props属性
-    data: function () {
-        return {
-            items: [
-                {name: 'item1'},
-                {name: 'item2'},
-                {name: 'item3'}
-            ]
-        };
+Vue.component('grid', {
+    template: '#grid-temp',
+    props: {
+        data: Array,
+        columns: Array,
+        filterKey: String
     }
-});
-
-var Parent = Vue.extend({
-    template: '#parent_temp',
-    components: {
-        'child': Child
-    },
-    data: function () {//父组件中的数据
-        return  {
-            edit: '修改',
-            delete: '删除'
-        };
-    }
-});
-
-Vue.component('parent', Parent);
+})
 
 new Vue({
-    el: '#parent'
-});
-
+    el: '#app',
+    data: {
+        searchQuery: '',
+        gridColumns: ['name', 'age', 'sex'],
+        gridData: [
+            {
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }
+        ]
+    }
+})
 
 

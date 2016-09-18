@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>slot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{margin: 0;padding: 0;}
+            .container{width: 400px;height: 300px;margin: 50px auto;border:solid 1px green;}
+            .modal-header{background-color: #CB4A70;height: 20%;}
+            .modal-body{height: 60%;}
+            .modal-footer{height: 20%;border-top:solid 1px #999;}
+            .modal-footer button{float: right;margin-right: 50px;width: 80px;height: 40px;background-color: #CB4A70;}
+        </style>
+    </head>
+    <body>
+        <div id="modal">
+            <modal>
+                <header class="modal-header" slot="header">
+                    <h1>标题</h1>
+                </header>
+
+                <div class="modal-body" slot="body">
+                    <p>弹窗内容</p>
+                </div>
+
+                <footer class="modal-footer" slot="footer">
+                    <button class="btn">关闭</button>
+                </footer>
+            </modal>
+
+        </div>
+
+        <template id="modal-temp">
+            <div class="container">
+                <slot name="header"></slot>
+                <slot name="body"></slot>
+                <slot name="footer"></slot>
+            </div>
+        </template>
+
+        <script src="../js/libs/vue.js"></script>
+        <script src="../js/apps/demo1.6.js"></script>
+    </body>
+</html>

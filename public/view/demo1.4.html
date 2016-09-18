@@ -4,26 +4,41 @@
         <title>props数据单向绑定</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table{width: 300px;margin-top: 20px;border-collapse: collapse;border: solid 1px #999;}
+            th,td{border-collapse: collapse;border:solid 1px #999;}
+            table thead{background-color: green;}
+        </style>
     </head>
     <body>
-        <h3>子组件访问父组件中的数据</h3>
-        <div id="parent">
-            <parent></parent>
+        <h3>数据单向绑定</h3>
+        <div id="app">
+            <div id="searchBar">
+                Search <input type="text" v-model="searchQuery" />
+            </div>
+            <grid v-bind:data="gridData" v-bind:columns="gridColumns" v-bind:filter-key="searchQuery"></grid>
         </div>
 
-        <template id="parent_temp">
-            <!--2.子组件绑定props属性-->
-            <child v-bind:pro-edit="edit" v-bind:pro-delete="delete"></child>
+        <template id="grid-temp">
+            <table>
+                <thead>
+                    <tr>
+                        <th v-for="col in columns">
+                            {{ col | capitalize}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="entry in data | filterBy filterKey">
+                        <td v-for="col in columns">
+                            {{entry[col]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </template>
 
-        <template id="child_temp">
-            <!--3.在子组件中使用props属性-->
-            <ul v-for="item in items">
-                <li>{{item.name}}:<a id="edit" href="#">{{proEdit}}</a>,<a id="delete" href="#">{{proDelete}}</a></li>
-            </ul>
-        </template>
-        
         <script src="../js/libs/vue.js"></script>
-        <script src="../js/apps/demo1.3.js"></script>
+        <script src="../js/apps/demo1.4.js"></script>
     </body>
 </html>
