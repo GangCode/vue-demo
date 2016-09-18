@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>父组件与子组件</title>
+        <title>子组件访问父组件中的数据</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-
+        <h3>子组件访问父组件中的数据</h3>
         <div id="parent">
             <parent></parent>
         </div>
 
         <template id="parent_temp">
-            <child></child>
-            <input type="text" placeholder="请输入事项">
+            <!--2.子组件绑定props属性-->
+            <child v-bind:pro-edit="edit" v-bind:pro-delete="delete"></child>
         </template>
 
         <template id="child_temp">
+            <!--3.在子组件中使用props属性-->
             <ul v-for="item in items">
-                <li>{{item.name}}</li>
+                <li>{{item.name}}:<a id="edit" href="#">{{proEdit}}</a>,<a id="delete" href="#">{{proDelete}}</a></li>
             </ul>
         </template>
-
+        
         <script src="../js/libs/vue.js"></script>
-        <script src="../js/apps/demo1.2.js"></script>
+        <script src="../js/apps/demo1.3.js"></script>
     </body>
 </html>
