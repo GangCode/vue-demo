@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>demo1.1</title>
+        <title>组件的使用</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-       
+        <h3>组件全局注册</h3>
+        <div id="global_comp">
+            <global-component></global-component>
+        </div>
+        <h3>组件局部注册</h3>
+        <div id="loacal_comp">
+            <local-component></local-component>
+        </div>
+        <h3>简化注册</h3>
+        <div id="simpple_comp">
+            <simpple-component></simpple-component>
+        </div>
+        
+        <template id="temp">
+            <div>组件模板内容</div>
+        </template>
+        
+        <script src="../js/libs/vue.js"></script>
+        <script src="../js/apps/demo1.1.js"></script>
     </body>
 </html>
