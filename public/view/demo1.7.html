@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>自定义事件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+        <style>
+            *{margin: 0;padding: 0;}
+            #test_tab{margin:50px auto;}
+            thead{background-color:#19B586;color:#fff;}
+            td,th{height: 50px;line-height: 50px;text-align: center;vertical-align: middle;}
+            .tab-del{text-align: center;}
+            .tab-del button{width: 80px;border: none;border-radius:2px;background-color: #FA8072;color: #fff;line-height: 30px;}
+            .search-input{margin-bottom: 20px;float: right;}
+        </style>
+    </head>
+    <body>
+
+        <div id="test_tab" class="col-md-6">
+<!--            <select v-for="(index,item) in selectLists" class="select-query" v-model="selectLists">
+                <option value="{{index}}">{{item}}</option>
+            </select>-->
+
+            <ul v-for="(index,item) in selectLists" class="select-query">
+                <li>{{item}}</li>
+            </ul>
+
+            <input type="text" class="search-input" v-model="searchQuery" placeholder="输入查询" />
+
+            <simmple-tab v-bind:cates="categorys" v-bind:prods="products" v-bind:query="searchQuery" v-bind:select-query="selectLists"></simmple-tab>
+        </div>
+
+        <template id="simp_tab">
+
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th v-for="cate in cates">
+                            {{cate.name | capitalize}}
+                        </th>
+                        <th class="tab-del">删 除</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr data-id="{{index}}" v-for="(index,item) in prods | filterBy query">
+                        <td v-for="cate in cates">
+                            {{item[cate.name]}}
+                        </td>
+                        <td class="tab-del">
+                            <button v-on:click="deleteItem(index)">删 除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
+
+        <script src="../js/libs/jquery.3.1.0.min.js"></script>
+        <script src="../js/libs/vue.js"></script>
+        <script src="../js/apps/demo1.7.js"></script>
+    </body>
+</html>
