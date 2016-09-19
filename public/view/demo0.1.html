@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vue常用指令</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .green{color:green;font-size: 20px;}
+        </style>
+    </head>
+
+    <body>
+        <!-- v-bind start-->
+        <h3>v-bind:class</h3>
+        <div id="test_class">
+            <bind-class v-bind:show="show"></bind-class>
+        </div>
+        <hr>
+        <template id='bind_class'>
+            <div v-bind:class="{'green':show}">test v-bind:class</div>
+        </template>
+
+        <h3>v-bind:style</h3>
+        <div id="test_style">
+            <bind-style></bind-style>
+        </div>
+        <hr>
+        <template id='bind_style'>
+            <div v-bind:style="bindStyle">test v-bind:style</div>
+        </template>
+        <!-- v-bind end-->
+
+        <!-- v-on start-->
+        <h3>v-on:click</h3>
+        <div id="test_click">
+            <on-click v-bind:show="show"></on-click>
+        </div>
+        <hr>
+        <template id='on_click'>
+            <div class="red" v-bind:class="{'green':show}" v-on:click="changeColor">test v-on:click</div>
+        </template>
+        <!-- v-on end-->
+
+        <!-- v-for start-->
+        <h3>v-for</h3>
+        <div id="test_for">
+            <v-for></v-for>
+        </div>
+        <hr>
+        <template id="for">
+            <ul v-for="(index,item) in items">
+                <li>{{index}}===>{{item}}</li>
+            </ul>
+        </template>
+         <!-- v-for end-->
+         
+        <!-- v-if start-->
+        <h3>v-if v-else</h3>
+        <div id="test_if">
+            <div v-if="showPar">show parent component content,v-if</div>
+            <if-else></if-else>
+        </div>
+        <hr>
+        <template id="if-else">
+            <div v-if="showChi">show child component content,v-if</div>
+            <div v-else>show child component content,v-else</div>
+        </template>
+        <!-- v-if start end-->
+
+
+        <!-- v-show start-->
+        <h3>v-show v-else</h3>
+        <div id="test_show">
+            <div v-show="showPar">show parent component content,v-show</div>
+            <show-else></show-else>
+        </div>
+        <hr>
+        <template id="show-else">
+            <div v-show="showChi">show child component content,v-show</div>
+            <div v-else>show child component content,v-else</div>
+        </template>
+        <!-- v-show end-->
+
+        
+        <script src="../js/libs/vue.js"></script>
+        <script src="../js/apps/demo0.1.js"></script>
+    </body>
+</html>
