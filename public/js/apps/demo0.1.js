@@ -61,12 +61,12 @@ new Vue({
  */
 new Vue({
     el: '#test_for',
-    components:{
-        'v-for':{
-            template:'#for',
-            data:function(){
+    components: {
+        'v-for': {
+            template: '#for',
+            data: function () {
                 return {
-                    items:['item1','item2','item3']
+                    items: ['item1', 'item2', 'item3']
                 };
             }
         }
@@ -84,9 +84,9 @@ new Vue({
     components: {
         'if-else': {
             template: '#if-else',
-            data:function(){
+            data: function () {
                 return {
-                    showChi:true
+                    showChi: true
                 };
             }
         }
@@ -104,11 +104,34 @@ new Vue({
     components: {
         'show-else': {
             template: '#show-else',
-            data:function(){
+            data: function () {
                 return {
-                    showChi:false
+                    showChi: false
                 };
             }
         }
     }
 });
+
+/**
+ * v-text
+ */
+new Vue({
+    el: '#test_text',
+    components: {
+        'v-text': {
+            template: '#text',
+            data: function () {
+                return {
+                    updateText: 'update text'
+                };
+            },
+            methods: {
+                appendText: function () {
+                    this.updateText += ' clicked';
+                }
+            }
+        }
+    }
+});
+
