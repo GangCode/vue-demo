@@ -12,32 +12,33 @@
             td,th{height: 50px;line-height: 50px;text-align: center;vertical-align: middle;}
             .tab-del{text-align: center;}
             .tab-del button{width: 80px;border: none;border-radius:2px;background-color: #FA8072;color: #fff;line-height: 30px;}
-            .search-input{margin-bottom: 20px;float: right;}
+            .query-bar{display: inline;float: right;margin-bottom: 20px;margin-right: 20px;}
+            .query-bar>*{margin-right: 10px;height: 30px;}
         </style>
     </head>
     <body>
 
         <div id="test_tab" class="col-md-6">
-<!--            <select v-for="(index,item) in selectLists" class="select-query" v-model="selectLists">
-                <option value="{{index}}">{{item}}</option>
-            </select>-->
 
-            <ul v-for="(index,item) in selectLists" class="select-query">
-                <li>{{item}}</li>
-            </ul>
-
-            <input type="text" class="search-input" v-model="searchQuery" placeholder="输入查询" />
-
-            <simmple-tab v-bind:cates="categorys" v-bind:prods="products" v-bind:query="searchQuery" v-bind:select-query="selectLists"></simmple-tab>
+            <simmple-tab v-bind:cates="categorys" v-bind:prods="products" v-bind:query="searchQuery" v-bind:selects="selectLists">
+                <input type="text" class="search-input" v-model="searchQuery" placeholder="输入查询" slot="search-input"/>
+            </simmple-tab>
         </div>
 
         <template id="simp_tab">
+
+            <div class="query-bar">
+                <select class="select-query">
+                    <option v-for="(index,opt) in selects" v-bind:value="index">{{opt.name | capitalize}}</option>
+                </select>
+                <slot name="search-input"></slot>
+            </div>
 
             <table class="table table-bordered table-condensed">
                 <thead>
                     <tr>
                         <th v-for="cate in cates">
-                            {{cate.name | capitalize}}
+                            {{cate.name}}
                         </th>
                         <th class="tab-del">删 除</th>
                     </tr>
@@ -56,7 +57,6 @@
             </table>
         </template>
 
-        <script src="../js/libs/jquery.3.1.0.min.js"></script>
         <script src="../js/libs/vue.js"></script>
         <script src="../js/apps/demo1.7.js"></script>
     </body>

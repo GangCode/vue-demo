@@ -5,15 +5,15 @@ var prodsData = [
     },
     {
         '商品名称': 'ipad',
-        '商品单价': 10000
+        '商品单价': 9000
     },
     {
         '商品名称': 'iphone8',
-        '商品单价': 10000
+        '商品单价': 5000
     },
     {
         '商品名称': 'apple watch',
-        '商品单价': 10000
+        '商品单价': 3000
     }
 ];
 
@@ -22,11 +22,9 @@ var category = [
     {name: '商品单价'}
 ];
 
-var selectList = ['商品名称', '商品单价'];
-
 var table = Vue.extend({
     template: '#simp_tab',
-    props: ['cates', 'prods', 'query'],
+    props: ['cates', 'prods', 'query','selects'],
     methods: {
         deleteItem: function (index) {
             var tds = $('[data-id=' + index + ']').children('td');
@@ -47,7 +45,10 @@ var v_tab = new Vue({
         categorys: category,
         products: prodsData,
         searchQuery: '',
-        selectLists: selectList
+        selectLists: [
+            {name:'商品名称'},
+            {name:'商品单价'}
+        ]
     }
 });
 

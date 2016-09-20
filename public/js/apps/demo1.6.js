@@ -1,10 +1,11 @@
+
 Vue.component('modal', {
     template: '#modal-temp',
     props: ['show']
 });
 
 new Vue({
-    el: '#modal',
+    el: '.app',
     data: {
         show: false
     },
@@ -17,3 +18,4 @@ new Vue({
         }
     }
 });
+
