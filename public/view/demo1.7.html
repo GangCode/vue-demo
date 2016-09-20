@@ -48,7 +48,6 @@
                 </thead>
 
                 <tbody>
-                    <!--<tr data-id="{{index}}" v-for="(index,item) in prods | filterBy query">-->
                     <tr data-id="{{index}}" v-for="(index,item) in prods | filterBy query">
                         <td v-for="cate in cates">
                             {{item[cate.name]}}

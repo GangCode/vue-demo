@@ -26,10 +26,10 @@ var prodsData = [
 ];
 
 var category = [
-    {name: '实例名称'},
-    {name: '实例ip'},
-    {name: '区域'},
-    {name: '线路'}
+    {name: '实例名称', value: '1'},
+    {name: '实例ip', value: '2'},
+    {name: '区域', value: '3'},
+    {name: '线路', value: '4'}
 ];
 
 var selectLists = [
